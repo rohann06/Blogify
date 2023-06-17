@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" bg-gray-50">
+      <body className=" mx-[300px] bg-gray-50">
         <GlobleStateContextProvider>
           <>
             <Navbar />

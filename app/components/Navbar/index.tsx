@@ -12,12 +12,12 @@ const Navbar = () => {
     useGlobalStateContext();
 
   return (
-    <div className=" flex justify-center gap-x-80 items-center">
+    <div className=" flex justify-between items-center">
       <div className=" flex items-center gap-20">
-        <p className=" text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
+        <p className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
           All Blogs
         </p>
-        <p className=" text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
+        <p className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
           My Blogs
         </p>
       </div>
@@ -46,13 +46,13 @@ const Navbar = () => {
         </p> */}
         <p
           onClick={() => setIsLoginOpen(true)}
-          className=" text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105"
+          className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105"
         >
           Sign in
         </p>
         <p
           onClick={() => setIsSignupOpen(true)}
-          className=" text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105"
+          className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105"
         >
           Sign up
         </p>
