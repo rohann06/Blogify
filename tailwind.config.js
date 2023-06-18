@@ -9,6 +9,7 @@ module.exports = {
     fontFamily: {
       Pacifico: "Pacifico",
       Caveat: "Caveat",
+      Montserrat: "Montserrat",
     },
     extend: {
       backgroundImage: {

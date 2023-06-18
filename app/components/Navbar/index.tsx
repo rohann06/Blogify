@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className=" text-center lg:mt-5 mt-2">
         <Link href={"/"}>
           <div>
-            <p className="font-Pacifico text-[27px] md:text-[48px] text-gray-600">
+            <p className="font-Pacifico text-[27px] md:text-[45px] text-gray-600">
               Blogify
             </p>
             <p className=" mt-1 text-sm md:text-2xl font-Caveat text-gray-500">
