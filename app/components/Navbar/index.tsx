@@ -41,24 +41,26 @@ const Navbar = () => {
       </div>
 
       <div className=" flex items-center gap-20">
-        {/* <p className=" text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
-          Add Blogs
-        </p> */}
-        <p
+        <Link href={'/addBlogs'}>
+          <p className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
+            Add Blogs
+          </p>
+        </Link>
+        {/* <p
           onClick={() => setIsLoginOpen(true)}
           className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105"
         >
           Sign in
-        </p>
-        <p
+        </p> */}
+        {/* <p
           onClick={() => setIsSignupOpen(true)}
           className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105"
         >
           Sign up
-        </p>
-        {/* <p className=" text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
-          Log out
         </p> */}
+        <p className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
+          Log out
+        </p>
       </div>
 
       {isLoginOpen && <SigninModal />}

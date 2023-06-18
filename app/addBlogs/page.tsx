@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import AddBlogForm from "../components/AddBlogForm";
 
 const AddBlogs = () => {
   return (
-    <div>AddBlogs</div>
-  )
-}
+    <div className=" mt-16 mb-10">
+      <AddBlogForm />
+    </div>
+  );
+};
 
-export default AddBlogs
+export default AddBlogs;
