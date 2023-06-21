@@ -6,26 +6,49 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import SigninModal from "../Modals/SigninModal";
 import { useGlobalStateContext } from "@/app/context/StateContext";
 import SignupModal from "../Modals/SignUpModal";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const { isLoginOpen, setIsLoginOpen, isSignupOpen, setIsSignupOpen } =
     useGlobalStateContext();
 
   return (
     <div className=" flex justify-between items-center">
-      <div className=" flex items-center gap-20">
-        <p className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
-          All Blogs
-        </p>
-        <p className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
-          My Blogs
-        </p>
+      <div className=" flex items-center gap-60">
+        <Link href={"/"}>
+          <div>
+            <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
+              <div
+                className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
+                  pathname === "/" &&
+                  "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
+                }`}
+              >
+                <span className=" ">All Blogs</span>
+              </div>
+            </p>
+          </div>
+        </Link>
+
+        <div>
+          <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
+            <div
+              className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
+                pathname === " " &&
+                "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
+              }`}
+            >
+              <span className=" ">My Blogs</span>
+            </div>
+          </p>
+        </div>
       </div>
 
       <div className=" text-center lg:mt-5 mt-2">
         <Link href={"/"}>
           <div>
-            <p className="font-Pacifico text-[27px] md:text-[45px] text-gray-600">
+            <p className="font-Pacifico text-[27px] md:text-[50px] text-gray-600">
               Blogify
             </p>
             <p className=" mt-1 text-sm md:text-2xl font-Caveat text-gray-500">
@@ -40,27 +63,59 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className=" flex items-center gap-20">
-        <Link href={'/addBlogs'}>
-          <p className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
-            Add Blogs
-          </p>
+      <div className=" flex items-center gap-60">
+        <Link href={"/addBlogs"}>
+          <div>
+            <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
+              <div
+                className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
+                  pathname === "/addBlogs" &&
+                  "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
+                }`}
+              >
+                <span className=" ">Add Blogs</span>
+              </div>
+            </p>
+          </div>
         </Link>
-        {/* <p
-          onClick={() => setIsLoginOpen(true)}
-          className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105"
-        >
-          Sign in
-        </p> */}
-        {/* <p
-          onClick={() => setIsSignupOpen(true)}
-          className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105"
-        >
-          Sign up
-        </p> */}
-        <p className=" text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:underline hover:scale-105">
-          Log out
-        </p>
+
+        {/* <div>
+            <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
+              <div
+                className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
+                  pathname === "/addBlogs" &&
+                  "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
+                }`}
+              >
+                <span className=" ">Sign In</span>
+              </div>
+            </p>
+          </div> */}
+        {/* <div>
+            <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
+              <div
+                className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
+                  pathname === "/addBlogs" &&
+                  "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
+                }`}
+              >
+                <span className=" ">Sign Up</span>
+              </div>
+            </p>
+          </div>*/}
+
+        <div>
+          <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
+            <div
+              className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
+                pathname === " " &&
+                "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
+              }`}
+            >
+              <span className=" ">Logout</span>
+            </div>
+          </p>
+        </div>
       </div>
 
       {isLoginOpen && <SigninModal />}

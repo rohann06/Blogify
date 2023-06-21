@@ -3,11 +3,13 @@ import React from "react";
 const AddBlogForm = () => {
   return (
     <div className=" w-full p-5 border-2 rounded-lg">
-      <p className=" text-center text-[25px] font-semibold font-Pacifico mb-5">
-        Add Your Blog
-      </p>
-      <hr />
-      <form className=" flex flex-col justify-center gap-y-7 my-5">
+      <div className=" bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_3px] transition-all pb-[0.5px]">
+        <p className=" text-gray-800 text-center text-[25px] font-semibold font-Pacifico mb-5">
+          Add Your Blog
+        </p>
+      </div>
+
+      <form className=" flex flex-col justify-center gap-y-7 mt-10 mb-5">
         <div>
           <p className=" font-Caveat text-xl font-semibold">Blog Title</p>
           <input
