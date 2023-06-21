@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 const BlogCard = () => {
   const router = useRouter();
   return (
-    <div className=" bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_4px] transition-all w-full rounded-xl overflow-hidden shadow-lg cursor-pointer border-2 border-gray-300 hover:shadow-xl">
+    <div className=" bg-gradient-to-r from-slate-500 to-pink-500 bg-no-repeat bg-[length:100%_4px] transition-all w-full rounded-xl overflow-hidden shadow-lg cursor-pointer border-2 border-gray-300 hover:shadow-xl">
       <div className="px-5 py-4 w-full">
         <div>
           <h1 className=" text-[28px] font-black font-Montserrat">
