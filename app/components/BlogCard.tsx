@@ -7,33 +7,21 @@ import { useRouter } from "next/navigation";
 const BlogCard = () => {
   const router = useRouter();
   return (
-    <div className=" w-[400px] h-[450px] rounded-xl overflow-hidden shadow-lg cursor-pointer">
-      <div className=" h-[220px] w-full">
-        <Image
-          src={
-            "https://149695847.v2.pressablecdn.com/wp-content/uploads/2019/07/image_rec_lib_banner.jpg"
-          }
-          alt="image"
-          height={30}
-          width={30}
-          className=" h-full w-full "
-        />
-      </div>
-      <div className="px-4 py-5 w-full">
+    <div className=" w-full rounded-xl overflow-hidden shadow-lg cursor-pointer border-2 border-gray-300 hover:shadow-xl">
+      <div className="px-5 py-4 w-full">
         <div>
-          <h1 className=" text-[20px] font-black font-Montserrat">
+          <h1 className=" text-[28px] font-black font-Montserrat">
             Back to the Future-Revisiting Stranger Hacks: GPT Era
           </h1>
         </div>
-        <div className=" my-[17px] text-justify font-medium font-Montserrat text-gray-600">
+        <div className=" mt-[5px] mb-[15px] text-justify font-Montserrat text-gray-600">
           <ShowMoreText
-            lines={3}
+            lines={2}
             more="Show more"
             onClick={() => router.push("/addBlogs")}
           >
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-              tempora commodi illum. Nostrum quaerat natus tempora recusandae.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. In odio dignissimos vitae saepe, quos maiores doloribus. Voluptates quibusdam voluptatibus sunt repellendus incidunt, modi placeat. Rerum reiciendis officia inventore vero explicabo! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero labore aliquam tempora itaque officia, corrupti placeat accusantium. Sed facilis cum porro consequuntur beatae vel voluptatum consequatur expedita hic, alias quas.
             </p>
           </ShowMoreText>
         </div>

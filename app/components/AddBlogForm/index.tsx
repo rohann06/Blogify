@@ -8,7 +8,6 @@ const AddBlogForm = () => {
       </p>
       <hr />
       <form className=" flex flex-col justify-center gap-y-7 my-5">
-        <div></div>
         <div>
           <p className=" font-Caveat text-xl font-semibold">Blog Title</p>
           <input
