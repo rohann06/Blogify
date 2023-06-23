@@ -1,10 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import { useBlogFormContext } from "@/app/context/BlogFormStateContext";
+import React from "react";
 
 const AddBlogForm = () => {
-  const [summary, setSummary] = useState("");
-  const [blogTitle, seBlogTitle] = useState("");
-  const [blogDetail, setBlogDetail] = useState("");
+  const {
+    blogTitle,
+    setBlogTitle,
+    blogDetail,
+    setBlogDetail,
+    blogSummary,
+    setBlogSummary,
+  } = useBlogFormContext();
 
   return (
     <div className=" w-full p-5 border-2 rounded-xl shadow-lg">
@@ -20,7 +26,8 @@ const AddBlogForm = () => {
           <input
             type="text"
             className=" w-full border border-black rounded-lg mt-2 py-[13px] px-5 font-Montserrat font-medium"
-            onChange={(e) => seBlogTitle(e.target.value)}
+            value={blogTitle}
+            onChange={(e) => setBlogTitle(e.target.value)}
           />
         </div>
 
@@ -29,6 +36,7 @@ const AddBlogForm = () => {
           <textarea
             rows={10}
             className=" w-full border border-black rounded-lg mt-2 py-[13px] px-5 font-Montserrat font-medium"
+            value={blogDetail}
             onChange={(e) => setBlogDetail(e.target.value)}
           />
         </div>
@@ -37,16 +45,18 @@ const AddBlogForm = () => {
           <p className=" font-Caveat text-xl font-semibold">Blog Summary</p>
           <textarea
             rows={6}
+            minLength={20}
             maxLength={500}
             className=" w-full border border-black rounded-lg mt-2 py-[13px] px-5 font-Montserrat font-medium"
-            onChange={(e) => setSummary(e.target.value)}
+            value={blogSummary}
+            onChange={(e) => setBlogSummary(e.target.value)}
           />
           <p
             className={` ${
-              summary.length === 500 ? "text-red-700" : "text-gray-400"
+              blogSummary.length === 500 ? "text-red-700" : "text-gray-400"
             } text-sm font-Montserrat font-medium `}
           >
-            {summary.length}/{500 - summary.length}
+            {blogSummary.length}/{500 - blogSummary.length}
           </p>
         </div>
         <div className="flex justify-center items-center w-full">
