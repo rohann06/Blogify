@@ -57,10 +57,10 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Mobile NavOption */}
+        {/* Mobile NavOption
         <div className=" md:hidden absolute top-6 right-5 text-[24px] lg:top-9 lg:right-20 lg:text-[25px] cursor-pointer drop-shadow-xl md:p-3 rounded-full md:border border-gray-400">
           <RxHamburgerMenu className=" hover:scale-105 " />
-        </div>
+        </div> */}
       </div>
 
       <div className=" flex items-center gap-60">
