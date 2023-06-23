@@ -86,7 +86,7 @@ const Navbar = () => {
           >
             <div
               className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
-                pathname === "/addBlogs" &&
+                isLoginOpen &&
                 "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
               }`}
             >
@@ -101,7 +101,7 @@ const Navbar = () => {
           >
             <div
               className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
-                pathname === "/addBlogs" &&
+                isSignupOpen &&
                 "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
               }`}
             >

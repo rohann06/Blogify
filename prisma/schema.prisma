@@ -11,17 +11,36 @@ datasource db {
 }
 
 model User {
-  id             Int       @id @default(autoincrement())
+  id             String    @id @default(cuid())
   email          String    @unique
   name           String?
   hashedPassword String?
   blogs          Blog[]
   comments       Comment[]
-  // profile Profile?
+  Account        Account[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
 }
 
 model Blog {
-  id        Int       @id @default(autoincrement())
+  id        String    @id @default(cuid())
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   title     String    @db.VarChar(255)
@@ -29,18 +48,18 @@ model Blog {
   summary   String
   published Boolean   @default(false)
   author    User      @relation(fields: [authorId], references: [id])
-  authorId  Int
+  authorId  String
   comments  Comment[]
 }
 
 model Comment {
-  id         Int      @id @default(autoincrement())
+  id         String   @id @default(cuid())
   content    String
   author     User     @relation(fields: [authorId], references: [id])
-  authorId   Int
+  authorId   String
   blogPostId Int
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   Blog       Blog?    @relation(fields: [blogId], references: [id])
-  blogId     Int?
+  blogId     String?
 }

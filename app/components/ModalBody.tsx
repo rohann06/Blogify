@@ -2,6 +2,7 @@ import React from "react";
 import { VscChromeClose } from "react-icons/vsc";
 import SignInForm from "./Forms/SignInForm";
 import SignUpForm from "./Forms/SignUpForm";
+import { FcGoogle } from "react-icons/fc";
 
 interface ModalProps {
   formHeading: string;
@@ -34,6 +35,20 @@ const ModalBody = ({ onClose, formHeading, buttonLable }: ModalProps) => {
         </div>
         <button className=" w-full py-2 hover:bg-gray-800 bg-gray-700 rounded-lg text-white text-3xl font-medium font-Caveat">
           {buttonLable}
+        </button>
+
+        <div className=" flex justify-center items-center my-5">
+          <div className=" w-full border border-gray-200"></div>
+          <p className=" text-lg font-medium text-gray-500 font-Montserrat mx-5">
+            OR
+          </p>
+          <div className=" w-full border border-gray-200"></div>
+        </div>
+
+        <button className=" w-full py-2  text-3xl font-semibold font-Caveat border border-gray-400 rounded-lg hover:border-black">
+          <div className=" flex justify-center items-center gap-3">
+            <FcGoogle /> Continue With Google
+          </div>
         </button>
       </div>
     </div>
