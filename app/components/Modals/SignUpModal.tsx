@@ -8,7 +8,7 @@ const SignupModal = () => {
   const{ setIsSignupOpen} = useGlobalStateContext()
   
   return (
-    <ModalBody onClose={()=>setIsSignupOpen(false)} formHeading={'Create your account'} buttonLable={'Sign In'}/>
+    <ModalBody onClose={()=>setIsSignupOpen(false)} formHeading={'Create your account'} buttonLable={'Sign Up'}/>
   )
 }
 

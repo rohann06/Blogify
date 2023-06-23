@@ -1,11 +1,16 @@
 import React from "react";
 import AddBlogForm from "../components/Forms/AddBlogForm";
+import { BlogFormStateContextProvider } from "../context/BlogFormStateContext";
 
 const AddBlogs = () => {
   return (
-    <div className=" mt-16 mb-10">
-      <AddBlogForm />
-    </div>
+    <BlogFormStateContextProvider>
+      <>
+        <div className=" mt-16 mb-10">
+          <AddBlogForm />
+        </div>
+      </>
+    </BlogFormStateContextProvider>
   );
 };
 

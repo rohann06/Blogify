@@ -5,7 +5,7 @@ const SignUpForm = () => {
     <>
       <div>
         <label className=" font-Caveat text-xl font-medium" htmlFor="name">
-          Name
+          User Name
         </label>
         <input type="text" className=" w-full border-2 rounded-lg py-2 px-3" />
       </div>
