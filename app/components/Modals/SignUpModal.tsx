@@ -5,10 +5,10 @@ import { useGlobalStateContext } from '@/app/context/StateContext'
 
 const SignupModal = () => {
 
-  const{ setIsSignupOpen} = useGlobalStateContext()
+  const{setIsSignupOpen} = useGlobalStateContext()
   
   return (
-    <ModalBody onClose={()=>setIsSignupOpen(false)} formHeading={'Create your account'} buttonLable={'Sign Up'}/>
+    <ModalBody onClose={()=>setIsSignupOpen(false)} formHeading={'Create your account'} />
   )
 }
 

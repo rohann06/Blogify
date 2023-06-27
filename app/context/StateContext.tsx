@@ -14,6 +14,8 @@ interface StateContextProps {
   setIsLoginOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isSignupOpen: boolean;
   setIsSignupOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 interface StateContextProviderProps {
   children: React.ReactElement;
@@ -29,8 +31,10 @@ const GlobalStateContextProps: StateContextProps = {
   setPassword: (): string => "",
   isLoginOpen: false,
   setIsLoginOpen: () => {},
-  isSignupOpen:false,
-  setIsSignupOpen:()=>{}
+  isSignupOpen: false,
+  setIsSignupOpen: () => {},
+  isLoading: false,
+  setIsLoading: () => {},
 };
 
 //Create context
@@ -47,6 +51,7 @@ export const GlobleStateContextProvider = ({
   const [password, setPassword] = useState("");
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const SateContextValues: StateContextProps = {
     name,
@@ -59,6 +64,8 @@ export const GlobleStateContextProvider = ({
     setIsLoginOpen,
     isSignupOpen,
     setIsSignupOpen,
+    isLoading,
+    setIsLoading,
   };
 
   return (

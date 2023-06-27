@@ -4,6 +4,8 @@ import Modal from "./components/ModalBody";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import { GlobleStateContextProvider } from "./context/StateContext";
+import Provider from "./context/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Blogify",
@@ -18,13 +20,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className=" mx-[170px] bg-gray-50">
-        <GlobleStateContextProvider>
-          <>
-            <Navbar />
-            {children}
-            <Footer />
-          </>
-        </GlobleStateContextProvider>
+        <Provider>
+          <GlobleStateContextProvider>
+            <>
+              <Toaster />
+              <Navbar />
+              {children}
+              <Footer />
+            </>
+          </GlobleStateContextProvider>
+        </Provider>
       </body>
     </html>
   );

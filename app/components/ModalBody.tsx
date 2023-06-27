@@ -6,11 +6,10 @@ import { FcGoogle } from "react-icons/fc";
 
 interface ModalProps {
   formHeading: string;
-  buttonLable: string;
   onClose: () => void;
 }
 
-const ModalBody = ({ onClose, formHeading, buttonLable }: ModalProps) => {
+const ModalBody = ({ onClose, formHeading }: ModalProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/40">
       <div className="bg-white w-[40rem] p-8 rounded-lg shadow-xl">
@@ -26,16 +25,16 @@ const ModalBody = ({ onClose, formHeading, buttonLable }: ModalProps) => {
           </div>
         </div>
         <hr />
-        <div className=" flex flex-col gap-y-5 py-5">
+        <div className=" py-5">
           {formHeading === "Login to your account" ? (
             <SignInForm />
           ) : (
             <SignUpForm />
           )}
         </div>
-        <button className=" w-full py-2 hover:bg-gray-800 bg-gray-700 rounded-lg text-white text-3xl font-medium font-Caveat">
+        {/* <button className=" w-full py-2 hover:bg-gray-800 bg-gray-700 rounded-lg text-white text-3xl font-medium font-Caveat">
           {buttonLable}
-        </button>
+        </button> */}
 
         <div className=" flex justify-center items-center my-5">
           <div className=" w-full border border-gray-200"></div>
