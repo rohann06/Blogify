@@ -1,6 +1,11 @@
+"use client";
+
 import React from "react";
 import { useGlobalStateContext } from "@/app/context/StateContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 
 const SignInForm = () => {
   const {
@@ -13,20 +18,47 @@ const SignInForm = () => {
     setIsLoading,
   } = useGlobalStateContext();
 
+  const data = { email, password };
+
+  const userSignin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setIsLoading(true);
+
+    signIn("credentials", { ...data, redirect: false })
+      .then(() => toast.success("Signed In Successfully!"))
+      .catch(() => toast.error("Opps! something went wrong!"));
+
+    setIsLoading(false);
+
+    setIsLoginOpen(false);
+  };
+
   return (
-    <form className=" flex flex-col gap-y-5">
+    <form onSubmit={userSignin} className=" flex flex-col gap-y-5">
       <div>
         <label className=" font-Montserrat font-medium" htmlFor="email">
-          Email
+          Email <span className=" text-red-500">*</span>
         </label>
-        <input type="email" className=" w-full border-2 rounded-lg py-2 px-3" />
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          name="email"
+          required
+          className=" w-full border-2 rounded-lg py-2 px-3"
+        />
       </div>
       <div>
         <label className=" font-Montserrat font-medium" htmlFor="email">
-          Password
+          Password <span className=" text-red-500">*</span>
         </label>
         <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           type="password"
+          name="password"
+          required
           className=" w-full border-2 rounded-lg py-2 px-3"
         />
       </div>
@@ -42,7 +74,9 @@ const SignInForm = () => {
           "Sign In"
         )}
       </button>
+      
     </form>
+    
   );
 };
 

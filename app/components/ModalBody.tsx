@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import { VscChromeClose } from "react-icons/vsc";
 import SignInForm from "./Forms/SignInForm";
 import SignUpForm from "./Forms/SignUpForm";
 import { FcGoogle } from "react-icons/fc";
+import { signIn } from "next-auth/react";
 
 interface ModalProps {
   formHeading: string;
@@ -32,9 +34,6 @@ const ModalBody = ({ onClose, formHeading }: ModalProps) => {
             <SignUpForm />
           )}
         </div>
-        {/* <button className=" w-full py-2 hover:bg-gray-800 bg-gray-700 rounded-lg text-white text-3xl font-medium font-Caveat">
-          {buttonLable}
-        </button> */}
 
         <div className=" flex justify-center items-center my-5">
           <div className=" w-full border border-gray-200"></div>
@@ -44,7 +43,10 @@ const ModalBody = ({ onClose, formHeading }: ModalProps) => {
           <div className=" w-full border border-gray-200"></div>
         </div>
 
-        <button className=" w-full py-2  text-3xl font-semibold font-Caveat border border-gray-400 rounded-lg hover:border-black">
+        <button
+          onClick={() => signIn("google")}
+          className=" w-full py-2  text-3xl font-semibold font-Caveat border border-gray-400 rounded-lg hover:border-black"
+        >
           <div className=" flex justify-center items-center gap-3">
             <FcGoogle /> Continue With Google
           </div>
