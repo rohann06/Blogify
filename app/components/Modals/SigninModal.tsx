@@ -8,7 +8,7 @@ const SigninModal = () => {
   const{setIsLoginOpen} = useGlobalStateContext()
   
   return (
-    <ModalBody onClose={()=>setIsLoginOpen(false)} formHeading={'Login to your account'} buttonLable={'Sign In'}/>
+    <ModalBody onClose={()=>setIsLoginOpen(false)} formHeading={'Login to your account'}/>
   )
 }
 

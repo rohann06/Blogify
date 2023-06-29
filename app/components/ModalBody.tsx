@@ -12,6 +12,14 @@ interface ModalProps {
 }
 
 const ModalBody = ({ onClose, formHeading }: ModalProps) => {
+
+  const handleClick = () => {
+    try {
+      signIn('google')
+    } catch (error) {
+      console.log("googleError",error)
+    }
+  }
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/40">
       <div className="bg-white w-[40rem] p-8 rounded-lg shadow-xl">
@@ -44,7 +52,7 @@ const ModalBody = ({ onClose, formHeading }: ModalProps) => {
         </div>
 
         <button
-          onClick={() => signIn("google")}
+          onClick={handleClick}
           className=" w-full py-2  text-3xl font-semibold font-Caveat border border-gray-400 rounded-lg hover:border-black"
         >
           <div className=" flex justify-center items-center gap-3">

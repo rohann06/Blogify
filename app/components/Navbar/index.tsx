@@ -34,18 +34,20 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <div>
-          <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
-            <div
-              className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
-                pathname === " " &&
-                "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
-              }`}
-            >
-              <span className=" ">My Blogs</span>
-            </div>
-          </p>
-        </div>
+        <Link href={'/myBlogs'}>
+          <div>
+            <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
+              <div
+                className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
+                  pathname === " " &&
+                  "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
+                }`}
+              >
+                <span className=" ">My Blogs</span>
+              </div>
+            </p>
+          </div>
+        </Link>
       </div>
 
       <div className=" text-center lg:mt-5 mt-2">
