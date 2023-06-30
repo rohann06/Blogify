@@ -18,6 +18,9 @@ export async function POST(request: any) {
         published,
         authorId,
       },
+      include: {
+        author: true,
+      },
     });
 
     return NextResponse.json(blog);

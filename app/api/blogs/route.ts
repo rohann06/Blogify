@@ -3,7 +3,11 @@ import prisma from "../../lib/prismadb";
 
 export async function GET() {
   try {
-    const blogs = await prisma.blog.findMany();
+    const blogs = await prisma.blog.findMany({
+      include: {
+        author: true,
+      },
+    });
 
     return NextResponse.json(blogs);
   } catch (error) {

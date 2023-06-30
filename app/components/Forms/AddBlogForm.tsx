@@ -16,7 +16,7 @@ const AddBlogForm = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const authorId = session?.user?.email;
-  
+
   const { isLoading, setIsLoading, isLoginOpen, isSignupOpen } =
     useGlobalStateContext();
   const {
