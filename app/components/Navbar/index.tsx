@@ -34,12 +34,12 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <Link href={'/myBlogs'}>
+        <Link href={"/myBlogs"}>
           <div>
             <p className=" group transition-all duration-300 ease-in-out text-gray-600 text-3xl font-semibold font-Caveat cursor-pointer hover:scale-105 mb-3">
               <div
                 className={`bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-in-out pb-3 ${
-                  pathname === " " &&
+                  pathname === "/myBlogs" &&
                   "bg-left-bottom bg-gradient-to-r from-black to-pink-500 bg-no-repeat bg-[length:100%_2px] transition-all"
                 }`}
               >
@@ -65,7 +65,7 @@ const Navbar = () => {
         {/* Mobile NavOption
         <div className=" md:hidden absolute top-6 right-5 text-[24px] lg:top-9 lg:right-20 lg:text-[25px] cursor-pointer drop-shadow-xl md:p-3 rounded-full md:border border-gray-400">
           <RxHamburgerMenu className=" hover:scale-105 " />
-        </div> */}
+        </div> */}  
       </div>
 
       <div className=" flex items-center gap-60">

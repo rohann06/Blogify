@@ -5,12 +5,14 @@ import React, { createContext, useContext, useState } from "react";
 // Define the type for the context state
 
 interface BlogFormContextProps {
-  blogTitle: string;
+  title: string;
   setBlogTitle: React.Dispatch<React.SetStateAction<string>>;
-  blogDetail: string;
+  content: string;
   setBlogDetail: React.Dispatch<React.SetStateAction<string>>;
-  blogSummary: string;
+  summary: string;
   setBlogSummary: React.Dispatch<React.SetStateAction<string>>;
+  published: boolean;
+  setPublished: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface ProviderProps {
@@ -18,12 +20,14 @@ interface ProviderProps {
 }
 // Create the initial context state
 const BlogFormConetxtProps: BlogFormContextProps = {
-  blogTitle: "",
+  title: "",
   setBlogTitle: (): string => "",
-  blogDetail: "",
+  content: "",
   setBlogDetail: (): string => "",
-  blogSummary: "",
+  summary: "",
   setBlogSummary: (): string => "",
+  published: true,
+  setPublished: () => {},
 };
 
 const BlogFormContext =
@@ -31,17 +35,20 @@ const BlogFormContext =
 
 //Create a Context provoder
 export const BlogFormStateContextProvider = ({ children }: ProviderProps) => {
-  const [blogTitle, setBlogTitle] = useState("");
-  const [blogDetail, setBlogDetail] = useState("");
-  const [blogSummary, setBlogSummary] = useState("");
+  const [title, setBlogTitle] = useState("");
+  const [content, setBlogDetail] = useState("");
+  const [summary, setBlogSummary] = useState("");
+  const [published, setPublished] = useState(true);
 
   const FormStateValues: BlogFormContextProps = {
-    blogTitle,
+    title,
     setBlogTitle,
-    blogDetail,
+    content,
     setBlogDetail,
-    blogSummary,
+    summary,
     setBlogSummary,
+    published,
+    setPublished,
   };
 
   return (

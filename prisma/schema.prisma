@@ -13,8 +13,8 @@ datasource db {
 model User {
   id             String    @id @default(cuid())
   email          String    @unique
-  name           String?
-  hashedPassword String?
+  name           String?   @unique
+  hashedPassword String
   blogs          Blog[]
   comments       Comment[]
 }
@@ -26,8 +26,8 @@ model Blog {
   title     String    @db.VarChar(255)
   content   String
   summary   String
-  published Boolean   @default(false)
-  author    User      @relation(fields: [authorId], references: [id])
+  published Boolean
+  author    User      @relation(fields: [authorId], references: [email])
   authorId  String
   comments  Comment[]
 }

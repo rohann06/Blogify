@@ -27,14 +27,22 @@ const SignUpForm = () => {
     e.preventDefault();
 
     setIsLoading(true);
+
     axios
       .post("api/register", data)
-      .then(() => toast.success("User registered successfully"))
-      .catch(() => toast.error("Opps! something went wrong"));
-    setIsLoading(false);
-    
-    setIsSignupOpen(false);
-    setIsLoginOpen(true);
+      .then((response) => {
+        // Handle the successful response here
+        console.log("response", response);
+        toast.success("User registered successfully");
+      })
+      .catch((error) => {
+        console.log("SubmitError", error);
+        toast.error("Oops! Something went wrong");
+      })
+      .finally(() => {
+        setIsLoading(false);
+        setIsLoginOpen(true);
+      });
   };
 
   return (

@@ -57,7 +57,6 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-
   secret: process.env.NEXT_PUBLIC_SECRET,
   session: {
     strategy: "jwt",
