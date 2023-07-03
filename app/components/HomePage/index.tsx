@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import BlogCard from "../BlogCard";
 import axios from "axios";
-import { data } from "autoprefixer";
+import Image from "next/image";
+import { useGlobalStateContext } from "@/app/context/StateContext";
 
 type Blog = {
   id: string;
@@ -13,16 +14,19 @@ type Blog = {
   published: true;
   summary: string;
   updatedAt: string;
-  author: ()=>{}
+  author: () => {};
 };
 
 const HomePage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const { isLoading, setIsLoading } = useGlobalStateContext();
 
   const fetchBlogPosts = async () => {
     try {
+      setIsLoading(true);
       const blogData = await axios.get("api/blogs");
       setBlogs(blogData.data);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -38,10 +42,35 @@ const HomePage = () => {
 
   return (
     <div className=" mt-16 mb-10 grid grid-cols-1 w-full justify-center gap-y-14">
-      <BlogCard />
-      {blogs.map((blog) => (
-        <div>{blog?.author?.name}</div>
-      ))}
+      {blogs.length ? (
+        <>
+          {blogs.map((blog) => (
+            <>
+              <BlogCard
+                title={blog?.title}
+                summary={blog?.summary}
+                author={blog?.author?.name}
+                publishedDate={blog?.createdAt}
+                key={blog?.id}
+                id={blog?.id}
+              />
+            </>
+          ))}
+        </>
+      ) : (
+        <div className=" text-center my-9">
+          <Image
+            className=" felx justify-center items-center m-auto"
+            src={"/noBlogFound.png"}
+            alt="erroImg"
+            height={550}
+            width={550}
+          />
+          <p className=" text-4xl font-Caveat font-medium">
+            No Blogs yet, Be The First one
+          </p>
+        </div>
+      )}
     </div>
   );
 };

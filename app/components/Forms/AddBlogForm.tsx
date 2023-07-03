@@ -2,7 +2,7 @@
 
 import { useBlogFormContext } from "@/app/context/BlogFormStateContext";
 import { useGlobalStateContext } from "@/app/context/StateContext";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { toast } from "react-hot-toast";
@@ -16,9 +16,8 @@ const AddBlogForm = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const authorId = session?.user?.email;
-
-  const { isLoading, setIsLoading, isLoginOpen, isSignupOpen } =
-    useGlobalStateContext();
+  const [isLoading, setIsLoading] = useState(false);
+  const { isLoginOpen, setIsLoginOpen, isSignupOpen } = useGlobalStateContext();
   const {
     title,
     setBlogTitle,
@@ -52,6 +51,13 @@ const AddBlogForm = () => {
         router.push("/");
       });
   };
+
+  //If user is not logged in
+  useEffect(() => {
+    if (!session) {
+      setIsLoginOpen(true);
+    }
+  }, []);
 
   return (
     <>

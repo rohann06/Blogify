@@ -1,5 +1,6 @@
 import React from "react";
 import Blogdetail from "../components/Blogdetail";
+import { useRouter } from "next/router";
 
 const BlogDetails = () => {
   return (

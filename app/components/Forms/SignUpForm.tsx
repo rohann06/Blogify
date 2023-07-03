@@ -1,11 +1,12 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { useGlobalStateContext } from "@/app/context/StateContext";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const SignUpForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const {
     name,
     setName,
@@ -15,8 +16,6 @@ const SignUpForm = () => {
     setPassword,
     setIsSignupOpen,
     setIsLoginOpen,
-    isLoading,
-    setIsLoading,
   } = useGlobalStateContext();
 
   const data = { name, email, password };
@@ -41,6 +40,7 @@ const SignUpForm = () => {
       })
       .finally(() => {
         setIsLoading(false);
+        setIsSignupOpen(false);
         setIsLoginOpen(true);
       });
   };

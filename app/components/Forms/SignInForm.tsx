@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useGlobalStateContext } from "@/app/context/StateContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { signIn } from "next-auth/react";
@@ -8,15 +8,9 @@ import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const SignInForm = () => {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    setIsLoginOpen,
-    isLoading,
-    setIsLoading,
-  } = useGlobalStateContext();
+  const [isLoading, setIsLoading] = useState(false);
+  const { email, setEmail, password, setPassword, setIsLoginOpen } =
+    useGlobalStateContext();
 
   const data = { email, password };
 
@@ -25,9 +19,7 @@ const SignInForm = () => {
 
     setIsLoading(true);
 
-    signIn("credentials", { ...data, redirect: false })
-      .then(() => toast.success("Signed In Successfully!"))
-      .catch(() => toast.error("Opps! something went wrong!"));
+    signIn("credentials", { ...data, redirect: false });
 
     setIsLoading(false);
 
@@ -74,9 +66,7 @@ const SignInForm = () => {
           "Sign In"
         )}
       </button>
-      
     </form>
-    
   );
 };
 
