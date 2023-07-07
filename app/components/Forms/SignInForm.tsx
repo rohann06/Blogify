@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import { useGlobalStateContext } from "@/app/context/StateContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { signIn } from "next-auth/react";
-import toast from "react-hot-toast";
-import { FcGoogle } from "react-icons/fc";
+import { useSession } from "next-auth/react";
+import { toast } from "react-hot-toast";
 
 const SignInForm = () => {
+  const { data: session } = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const { email, setEmail, password, setPassword, setIsLoginOpen } =
     useGlobalStateContext();
@@ -21,9 +22,16 @@ const SignInForm = () => {
 
     signIn("credentials", { ...data, redirect: false });
 
-    setIsLoading(false);
+    if (session?.user) {
+      setIsLoading(false);
+      toast.success("Logged in success fully!");
+      setIsLoginOpen(false);
+    }
 
-    setIsLoginOpen(false);
+    if (!session?.user) {
+      toast.error("Opps! some thing went wrong");
+      setIsLoading(false);
+    }
   };
 
   return (

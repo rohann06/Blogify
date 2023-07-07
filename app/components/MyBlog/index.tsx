@@ -59,6 +59,8 @@ const MyBlog = () => {
                 <>
                   {session?.user?.email === myblog?.authorId ? (
                     <BlogCard
+                      key={myblog?.id}
+                      id={myblog?.id}
                       title={myblog?.title}
                       summary={myblog?.summary}
                       author={myblog?.author?.name}

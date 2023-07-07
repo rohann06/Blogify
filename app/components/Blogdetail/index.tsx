@@ -7,13 +7,6 @@ import { useGlobalStateContext } from "@/app/context/StateContext";
 const Blogdetail = () => {
   const { data: session } = useSession();
   const { setIsLoginOpen } = useGlobalStateContext();
-  
-  //If user is not logged in
-  useEffect(() => {
-    if (!session) {
-      setIsLoginOpen(true);
-    }
-  }, []);
 
   return (
     <>
