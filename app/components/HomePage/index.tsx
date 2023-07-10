@@ -4,6 +4,7 @@ import BlogCard from "../BlogCard";
 import axios from "axios";
 import Image from "next/image";
 import { useGlobalStateContext } from "@/app/context/StateContext";
+import { useSession } from "next-auth/react";
 
 type Blog = {
   id: string;
@@ -50,6 +51,7 @@ const HomePage = () => {
                 title={blog?.title}
                 summary={blog?.summary}
                 author={blog?.author?.name}
+                authorImage={blog?.author?.image}
                 publishedDate={blog?.createdAt}
                 key={blog?.id}
                 id={blog?.id}

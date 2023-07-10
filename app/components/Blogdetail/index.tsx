@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import ErrorComponent from "../ErrorComponent";
 import { useGlobalStateContext } from "@/app/context/StateContext";
+import CommentSection from "../CommentSection";
 
 const Blogdetail = () => {
   const { data: session } = useSession();
@@ -12,8 +13,8 @@ const Blogdetail = () => {
     <>
       {session && session?.user ? (
         <>
-          <div className=" flex justify-center">
-            <div className=" w-[80%]">
+          <div className=" flex flex-col justify-center">
+            <div className=" mx-40">
               <div className=" mb-10">
                 <h1 className=" text-[40px] font-black font-Montserrat">
                   Back to the Future-Revisiting Stranger Hacks: GPT Era
@@ -76,6 +77,9 @@ const Blogdetail = () => {
                   </p>
                 </div>
               </div>
+            </div>
+            <div className=" mx-40 mt-20">
+              <CommentSection />
             </div>
           </div>
         </>

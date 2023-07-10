@@ -22,16 +22,9 @@ const SignInForm = () => {
 
     signIn("credentials", { ...data, redirect: false });
 
-    if (session?.user) {
-      setIsLoading(false);
-      toast.success("Logged in success fully!");
-      setIsLoginOpen(false);
-    }
-
-    if (!session?.user) {
-      toast.error("Opps! some thing went wrong");
-      setIsLoading(false);
-    }
+    setIsLoading(false);
+    toast.success("Logged in success fully!");
+    setIsLoginOpen(false);
   };
 
   return (

@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import ShowMoreText from "react-show-more-text";
 import { useRouter } from "next/navigation";
+import ImagePlaceHolder from "./ImagePlaceHolder";
 
 interface BlogCardProps {
   title: string;
@@ -10,6 +11,7 @@ interface BlogCardProps {
   author: string;
   publishedDate: string;
   id: string;
+  authorImage?: any;
 }
 
 const BlogCard = ({
@@ -18,6 +20,7 @@ const BlogCard = ({
   author,
   publishedDate,
   id,
+  authorImage,
 }: BlogCardProps) => {
   const router = useRouter();
 
@@ -49,11 +52,30 @@ const BlogCard = ({
           </ShowMoreText>
         </div>
         <div className=" flex items-center gap-2 text-sm text-gray-500">
+          <div>
+            {authorImage ? (
+              <div>
+                <Image
+                  className=" rounded-full h-full w-full"
+                  src={authorImage}
+                  alt="authorImage"
+                  height={30}
+                  width={30}
+                />
+              </div>
+            ) : (
+              <ImagePlaceHolder />
+            )}
+            {/* <Image src={}/> */}
+          </div>
           <p className=" underline font-medium cursor-pointer hover:text-gray-600">
             {author}
           </p>
           <p>.</p>
           <p> {formattedDate}</p>
+          <div className=" ml-5">
+            Comment <span className=" font-medium text-[15px]">(0)</span>
+          </div>
         </div>
       </div>
     </div>

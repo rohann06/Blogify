@@ -12,14 +12,13 @@ interface ModalProps {
 }
 
 const ModalBody = ({ onClose, formHeading }: ModalProps) => {
-
   const handleClick = () => {
     try {
-      signIn('google')
+      signIn("google", { redirect: false });
     } catch (error) {
-      console.log("googleError",error)
+      console.log("googleError", error);
     }
-  }
+  };
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/40">
       <div className="bg-white w-[40rem] p-8 rounded-lg shadow-xl">
