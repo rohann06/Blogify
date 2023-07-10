@@ -15,7 +15,11 @@ type Blog = {
   published: true;
   summary: string;
   updatedAt: string;
-  author: () => {};
+  author: {
+    image: any;
+    email: string;
+    name: string;
+  };
 };
 
 const HomePage = () => {

@@ -21,6 +21,7 @@ type Blog = {
   summary: string;
   updatedAt: string;
   author: {
+    image: any;
     email: string;
     name: string;
   };
