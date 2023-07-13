@@ -20,12 +20,15 @@ type Blog = {
     email: string;
     name: string;
   };
+  comments: {
+    content: string;
+  };
 };
 
 const HomePage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const fetchBlogPosts = async () => {
     try {
       setIsLoading(true);
@@ -57,6 +60,7 @@ const HomePage = () => {
                 author={blog?.author?.name}
                 authorImage={blog?.author?.image}
                 publishedDate={blog?.createdAt}
+                comments = {blog?.comments}
                 key={blog?.id}
                 id={blog?.id}
               />

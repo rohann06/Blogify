@@ -2,8 +2,16 @@
 import { useGlobalStateContext } from "@/app/context/StateContext";
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-const CommentForm = () => {
+interface CommentFormProps {
+  authorId: string;
+  blogId: string;
+  
+}
+
+const CommentForm = ({ authorId, blogId }: CommentFormProps) => {
   const { comment, setComment } = useGlobalStateContext();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -11,10 +19,22 @@ const CommentForm = () => {
     e.preventDefault();
 
     setIsLoading(true);
+    const data = { content: comment, authorId, blogId };
+    axios
+      .post("api/blogs/blogComment", data)
+      .then((response) => {
+        console.log("response", response);
+        toast.success("Commented successfully");
+      })
+      .catch((error) => {
+        console.log("SubmitError", error.response.data);
+        toast.error("Oops! Something went wrong");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
 
-    const data = { comment };
-
-    axios.post("api/postComment", data);
+    console.log("Commented: ", blogId);
   };
 
   return (
@@ -32,7 +52,14 @@ const CommentForm = () => {
         type="submit"
         className=" font-Montserrat font-semibold text-lg px-5 py-2 text-white bg-gray-700 hover:bg-gray-500 mt-2 rounded-lg"
       >
-        Comment
+        {isLoading ? (
+          <div className=" flex justify-center items-center text-xl">
+            <AiOutlineLoading3Quarters className="animate-spin" />
+          </div>
+        ) : (
+          
+          "Comment"
+        )}
       </button>
     </form>
   );

@@ -25,6 +25,9 @@ type Blog = {
     email: string;
     name: string;
   };
+  comments: {
+    content: string;
+  };
 };
 
 const MyBlog = () => {
@@ -65,6 +68,7 @@ const MyBlog = () => {
                     title={myblog?.title}
                     summary={myblog?.summary}
                     author={myblog?.author?.name}
+                    comments={myblog?.comments}
                     authorImage={myblog?.author?.image}
                     publishedDate={myblog?.createdAt}
                   />

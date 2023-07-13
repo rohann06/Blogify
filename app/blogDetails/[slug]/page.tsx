@@ -31,12 +31,13 @@ const BlogDetails = (id: URL) => {
   const [blogDetails, setBlogDetails] = useState<Blog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  
   //Fetch  posts
   const fetchDetails = async () => {
+    setIsLoading(true);
     const response = await axios.get(`/api/blogs`);
     console.log("response", response.data);
     setBlogDetails(response.data);
+    setIsLoading(false);
   };
   useEffect(() => {
     fetchDetails();

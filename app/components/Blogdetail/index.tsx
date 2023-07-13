@@ -6,10 +6,12 @@ import { useGlobalStateContext } from "@/app/context/StateContext";
 import CommentSection from "../CommentSection";
 import axios from "axios";
 import BlogAuthorDetails from "../BlogAuthorDetails";
+import AllComments from "../AllComments";
 
 interface BlogDetailsProps {
   authorId: string;
   blogDetail: {
+    id: string;
     title: string;
     authorId: string;
     content: string;
@@ -22,6 +24,9 @@ interface BlogDetailsProps {
       email: string;
       name: string;
     };
+    comments:{
+      content:string
+    }
   };
 }
 
@@ -60,7 +65,10 @@ const Blogdetail = ({ authorId, blogDetail }: BlogDetailsProps) => {
               </div>
             </div>
             <div className=" mx-40 mt-20">
-              <CommentSection />
+              <CommentSection  blogId={blogDetail?.id} authorId={authorId} />
+            </div>
+            <div className=" mx-40 mt-20">
+              <AllComments comments={blogDetail?.comments}/>
             </div>
           </div>
         </>

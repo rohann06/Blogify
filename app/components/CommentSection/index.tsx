@@ -2,11 +2,19 @@
 import React from "react";
 import CommentForm from "../Forms/CommentForm";
 
-const CommentSection = () => {
+interface CommentSectionProps {
+  authorId: string;
+  blogId: string;
+}
+
+const CommentSection = ({
+  authorId,
+  blogId,
+}: CommentSectionProps) => {
   return (
     <div>
       <div>
-        <CommentForm />
+        <CommentForm blogId={blogId} authorId={authorId} />
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ const AddBlogForm = () => {
     const data = { published, title, content, summary, authorId };
     
     axios
-      .post("api/postBlog", data)
+      .post("api/[postBlog]", data)
       .then((response) => {
         console.log("response", response);
         toast.success("Blog Posted successfully");

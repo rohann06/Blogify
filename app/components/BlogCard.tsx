@@ -13,6 +13,7 @@ interface BlogCardProps {
   publishedDate: string;
   id: string;
   authorImage?: any;
+  comments: any
 }
 
 const BlogCard = ({
@@ -22,6 +23,7 @@ const BlogCard = ({
   publishedDate,
   id,
   authorImage,
+  comments,
 }: BlogCardProps) => {
   const router = useRouter();
 
@@ -47,8 +49,11 @@ const BlogCard = ({
               author={author}
               authorImage={authorImage}
             />
-            <div className=" ml-5">
-              Comment <span className=" font-medium text-[15px]">(0)</span>
+            <div className=" flex items-center gap-1 ml-5">
+              Comment{" "}
+              <p className=" font-medium text-[15px]">
+                ({comments.length})
+              </p>
             </div>
           </div>
         </div>
