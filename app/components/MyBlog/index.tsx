@@ -30,7 +30,8 @@ type Blog = {
 const MyBlog = () => {
   const router = useRouter();
   const [myBlogs, setMyBlogs] = useState<Blog[]>([]);
-  const { isLoginOpen, isSignupOpen, setIsLoading } = useGlobalStateContext();
+  const [isLoading, setIsLoading] = useState(false);
+  const { isLoginOpen, isSignupOpen } = useGlobalStateContext();
   const { data: session } = useSession();
 
   const fetchMyBlogPosts = async () => {

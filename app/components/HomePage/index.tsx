@@ -24,8 +24,8 @@ type Blog = {
 
 const HomePage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
-  const { isLoading, setIsLoading } = useGlobalStateContext();
-
+  const [isLoading, setIsLoading] = useState(false);
+  
   const fetchBlogPosts = async () => {
     try {
       setIsLoading(true);

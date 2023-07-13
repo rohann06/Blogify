@@ -33,8 +33,6 @@ model Blog {
   published Boolean
   author    User      @relation(fields: [authorId], references: [email])
   authorId  String
-  // authorImage   User      @relation(fields: [authorImageId], references: [image])
-  // authorImageId String?
   comments  Comment[]
 }
 

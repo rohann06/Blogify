@@ -35,7 +35,7 @@ const AddBlogForm = () => {
     setIsLoading(true);
 
     const data = { published, title, content, summary, authorId };
-
+    
     axios
       .post("api/postBlog", data)
       .then((response) => {
