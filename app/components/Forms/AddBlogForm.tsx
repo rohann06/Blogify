@@ -9,7 +9,6 @@ import { toast } from "react-hot-toast";
 import { useSession } from "next-auth/react";
 import SigninModal from "../Modals/SigninModal";
 import SignupModal from "../Modals/SignUpModal";
-import ErrorComponent from "../ErrorComponent";
 import { useRouter } from "next/navigation";
 
 const AddBlogForm = () => {
@@ -17,7 +16,7 @@ const AddBlogForm = () => {
   const router = useRouter();
   const authorId = session?.user?.email;
   const [isLoading, setIsLoading] = useState(false);
-  const { isLoginOpen, setIsLoginOpen, isSignupOpen } = useGlobalStateContext();
+  const { isLoginOpen, isSignupOpen } = useGlobalStateContext();
   const {
     title,
     setBlogTitle,
@@ -35,7 +34,7 @@ const AddBlogForm = () => {
     setIsLoading(true);
 
     const data = { published, title, content, summary, authorId };
-    
+
     axios
       .post("api/[postBlog]", data)
       .then((response) => {
@@ -52,16 +51,9 @@ const AddBlogForm = () => {
       });
   };
 
-  //If user is not logged in
-  useEffect(() => {
-    if (!session) {
-      setIsLoginOpen(true);
-    }
-  }, []);
-
   return (
     <>
-      {session && session?.user ? (
+      {session && session?.user && (
         <>
           <div className=" w-full p-5 border-2 rounded-xl shadow-lg">
             <div className=" bg-left-bottom bg-gradient-to-r from-slate-500 to-pink-500 bg-no-repeat bg-[length:100%_3px] transition-all pb-[0.5px]">
@@ -136,8 +128,6 @@ const AddBlogForm = () => {
             </form>
           </div>
         </>
-      ) : (
-        <ErrorComponent />
       )}
       {isLoginOpen && <SigninModal />}
       {isSignupOpen && <SignupModal />}

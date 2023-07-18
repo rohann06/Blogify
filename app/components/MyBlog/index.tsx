@@ -10,6 +10,7 @@ import ErrorComponent from "../ErrorComponent";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Loading from "../Loading";
 
 type Blog = {
   id: string;
@@ -24,9 +25,6 @@ type Blog = {
     image: any;
     email: string;
     name: string;
-  };
-  comments: {
-    content: string;
   };
 };
 
@@ -58,46 +56,51 @@ const MyBlog = () => {
     <>
       {session && session?.user ? (
         <div className=" mt-16 mb-10 grid grid-cols-1 w-full justify-center gap-y-14">
-          <>
-            {myBlogs.map((myblog) => (
-              <>
-                {session?.user?.email === myblog?.authorId ? (
-                  <BlogCard
-                    key={myblog?.id}
-                    id={myblog?.id}
-                    title={myblog?.title}
-                    summary={myblog?.summary}
-                    author={myblog?.author?.name}
-                    comments={myblog?.comments}
-                    authorImage={myblog?.author?.image}
-                    publishedDate={myblog?.createdAt}
-                  />
-                ) : (
-                  <>
-                    <div className=" text-center my-9">
-                      <Image
-                        className=" felx justify-center items-center m-auto"
-                        src={"/noBlogFound.png"}
-                        alt="erroImg"
-                        height={550}
-                        width={550}
-                      />
-                      <p className=" text-4xl font-Caveat ">
-                        Write Your First Blog{" "}
-                        <span
-                          onClick={() => router.push("/addBlog")}
-                          className=" underline cursor-pointer"
-                        >
-                          {" "}
-                          here{" "}
-                        </span>
-                      </p>
-                    </div>
-                  </>
-                )}
-              </>
-            ))}
-          </>
+          {isLoading ? (
+            <>
+              <Loading />
+            </>
+          ) : (
+            <>
+              {myBlogs.map((myblog) => (
+                <>
+                  {session?.user?.email === myblog?.authorId ? (
+                    <BlogCard
+                      key={myblog?.id}
+                      id={myblog?.id}
+                      title={myblog?.title}
+                      summary={myblog?.summary}
+                      author={myblog?.author?.name}
+                      authorImage={myblog?.author?.image}
+                      publishedDate={myblog?.createdAt}
+                    />
+                  ) : (
+                    <>
+                      <div className=" text-center my-9">
+                        <Image
+                          className=" felx justify-center items-center m-auto"
+                          src={"/noBlogFound.png"}
+                          alt="erroImg"
+                          height={550}
+                          width={550}
+                        />
+                        <p className=" text-4xl font-Caveat ">
+                          Write Your First Blog{" "}
+                          <span
+                            onClick={() => router.push("/addBlog")}
+                            className=" underline cursor-pointer"
+                          >
+                            {" "}
+                            here{" "}
+                          </span>
+                        </p>
+                      </div>
+                    </>
+                  )}
+                </>
+              ))}
+            </>
+          )}
         </div>
       ) : (
         <>

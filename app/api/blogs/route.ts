@@ -6,7 +6,6 @@ export async function GET() {
     const blogs = await prisma.blog.findMany({
       include: {
         author: true,
-        comments: true,
       },
     });
 

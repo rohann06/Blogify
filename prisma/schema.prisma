@@ -20,31 +20,18 @@ model User {
   accounts       Account[]
   sessions       Session[]
   blogs          Blog[]
-  comment        Comment[]
 }
 
 model Blog {
-  id        String    @id @default(cuid())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  title     String    @db.VarChar(255)
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String   @db.VarChar(255)
   content   String
   summary   String
   published Boolean
-  author    User      @relation(fields: [authorId], references: [email])
+  author    User     @relation(fields: [authorId], references: [email])
   authorId  String
-  comments  Comment[]
-}
-
-model Comment {
-  id        String   @id @default(cuid())
-  content   String
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Blog      Blog?    @relation(fields: [blogId], references: [id])
-  blogId    String?
 }
 
 model Account {

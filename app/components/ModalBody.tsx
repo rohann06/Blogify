@@ -5,6 +5,7 @@ import SignInForm from "./Forms/SignInForm";
 import SignUpForm from "./Forms/SignUpForm";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 interface ModalProps {
   formHeading: string;
@@ -12,11 +13,13 @@ interface ModalProps {
 }
 
 const ModalBody = ({ onClose, formHeading }: ModalProps) => {
+  const router = useRouter();
   const handleClick = () => {
     try {
       signIn("google", { redirect: false });
     } catch (error) {
       console.log("googleError", error);
+      router.push("/");
     }
   };
   return (

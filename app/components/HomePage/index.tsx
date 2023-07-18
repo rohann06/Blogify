@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import BlogCard from "../BlogCard";
 import axios from "axios";
 import Image from "next/image";
-import { useGlobalStateContext } from "@/app/context/StateContext";
-import { useSession } from "next-auth/react";
+import Loading from "../Loading";
 
 type Blog = {
   id: string;
@@ -49,39 +48,46 @@ const HomePage = () => {
   }, [blogs]);
 
   return (
-    <div className=" mt-16 mb-10 grid grid-cols-1 w-full justify-center gap-y-14">
-      {blogs.length ? (
+    <>
+      {isLoading ? (
         <>
-          {blogs.map((blog) => (
-            <>
-              <BlogCard
-                title={blog?.title}
-                summary={blog?.summary}
-                author={blog?.author?.name}
-                authorImage={blog?.author?.image}
-                publishedDate={blog?.createdAt}
-                comments = {blog?.comments}
-                key={blog?.id}
-                id={blog?.id}
-              />
-            </>
-          ))}
+          <Loading />
         </>
       ) : (
-        <div className=" text-center my-9">
-          <Image
-            className=" felx justify-center items-center m-auto"
-            src={"/noBlogFound.png"}
-            alt="erroImg"
-            height={550}
-            width={550}
-          />
-          <p className=" text-4xl font-Caveat font-medium">
-            No Blogs yet, Be The First one
-          </p>
+        <div className=" mt-16 mb-10 grid grid-cols-1 w-full justify-center gap-y-14">
+          <>
+            {blogs.map((blog) => (
+              <>
+                {blog ? (
+                  <BlogCard
+                    title={blog?.title}
+                    summary={blog?.summary}
+                    author={blog?.author?.name}
+                    authorImage={blog?.author?.image}
+                    publishedDate={blog?.createdAt}
+                    key={blog?.id}
+                    id={blog?.id}
+                  />
+                ) : (
+                  <div className=" text-center my-9">
+                    <Image
+                      className=" felx justify-center items-center m-auto"
+                      src={"/noBlogFound.png"}
+                      alt="erroImg"
+                      height={550}
+                      width={550}
+                    />
+                    <p className=" text-4xl font-Caveat font-medium">
+                      No Blogs yet, Be The First one
+                    </p>
+                  </div>
+                )}
+              </>
+            ))}
+          </>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

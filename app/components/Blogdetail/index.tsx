@@ -3,10 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import ErrorComponent from "../ErrorComponent";
 import { useGlobalStateContext } from "@/app/context/StateContext";
-import CommentSection from "../CommentSection";
 import axios from "axios";
 import BlogAuthorDetails from "../BlogAuthorDetails";
-import AllComments from "../AllComments";
 
 interface BlogDetailsProps {
   authorId: string;
@@ -24,9 +22,6 @@ interface BlogDetailsProps {
       email: string;
       name: string;
     };
-    comments:{
-      content:string
-    }
   };
 }
 
@@ -63,12 +58,6 @@ const Blogdetail = ({ authorId, blogDetail }: BlogDetailsProps) => {
                   <p>{blogDetail?.summary}</p>
                 </div>
               </div>
-            </div>
-            <div className=" mx-40 mt-20">
-              <CommentSection  blogId={blogDetail?.id} authorId={authorId} />
-            </div>
-            <div className=" mx-40 mt-20">
-              <AllComments comments={blogDetail?.comments}/>
             </div>
           </div>
         </>
