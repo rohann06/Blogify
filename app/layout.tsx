@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" mx-[170px] bg-gray-50">
+      <body className=" mx-3 md:mx-[170px] bg-gray-50">
         <Provider>
           <GlobleStateContextProvider>
             <>

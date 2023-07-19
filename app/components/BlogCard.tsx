@@ -30,13 +30,13 @@ const BlogCard = ({
       <div className="w-full rounded-xl overflow-hidden cursor-pointer border-2 border-gray-300 hover:shadow-md">
         <div className="px-5 py-4 w-full">
           <div>
-            <h1 className=" text-[28px] font-black font-Montserrat">{title}</h1>
+            <h1 className=" text-[20px] md:text-[28px] font-black font-Montserrat">{title}</h1>
           </div>
-          <div className=" mt-[5px] mb-[15px] text-justify font-Montserrat text-gray-600">
+          <div className=" text-sm md:text-base mt-[3px] md:mt-[5px] mb-[10px] md:mb-[15px] text-justify font-Montserrat text-gray-600">
             <ShowMoreText
               lines={2}
               more="Show more"
-              onClick={() => router.push("/blogDetails")}
+              onClick={() => router.push(`/blogDetails/${id}`)}
             >
               <p>{summary}</p>
             </ShowMoreText>

@@ -16,8 +16,8 @@ const UserAvetar = ({ authorImage }: UserAvetar) => {
             className=" rounded-full h-full w-full"
             src={authorImage}
             alt="authorImage"
-            height={30}
-            width={30}
+            height={28}
+            width={28}
           />
         </div>
       ) : (
