@@ -45,7 +45,7 @@ const BlogDetails = (id: URL) => {
 
   console.log("BlogDetail", blogDetails);
   return (
-    <div className=" mt-24 mb-20">
+    <div className=" mt-20 mb-16 md:mt-24 md:mb-20">
       {blogDetails.map((blogDetail) => (
         <>
           {blogDetail?.id === authorId && (

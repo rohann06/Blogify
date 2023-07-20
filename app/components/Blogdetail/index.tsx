@@ -37,9 +37,9 @@ const Blogdetail = ({ authorId, blogDetail }: BlogDetailsProps) => {
       {session && session?.user ? (
         <>
           <div className=" flex flex-col justify-center">
-            <div className=" mx-40">
-              <div className=" mb-10">
-                <h1 className=" text-[40px] font-black font-Montserrat">
+            <div className=" md:mx-40">
+              <div className=" mb-5 md:mb-10">
+                <h1 className=" text-[34px] md:text-[40px] font-black font-Montserrat">
                   {blogDetail?.title}
                 </h1>
                 <BlogAuthorDetails
@@ -51,7 +51,7 @@ const Blogdetail = ({ authorId, blogDetail }: BlogDetailsProps) => {
 
               <div>
                 <div>
-                  <p className=" text-justify text-lg">{blogDetail?.content}</p>
+                  <p className=" text-justify md:text-lg">{blogDetail?.content}</p>
                 </div>
                 <div className=" mt-10">
                   <p className=" text-lg font-semibold mb-2">Summary : </p>
