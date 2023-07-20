@@ -24,7 +24,7 @@ const ModalBody = ({ onClose, formHeading }: ModalProps) => {
   };
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/40">
-      <div className="bg-white w-[40rem] p-8 rounded-lg shadow-xl">
+      <div className="bg-white w-[40rem] p-5 md:p-8 rounded-lg shadow-xl md:m-0 m-5">
         <div className=" relative">
           <h2 className=" text-lg md:text-[1.8rem] font-Pacifico font-bold text-center mb-4">
             {formHeading}
@@ -47,7 +47,7 @@ const ModalBody = ({ onClose, formHeading }: ModalProps) => {
 
         <div className=" flex justify-center items-center my-5">
           <div className=" w-full border border-gray-200"></div>
-          <p className=" text-lg font-medium text-gray-500 font-Montserrat mx-5">
+          <p className=" md:text-lg font-medium text-gray-500 font-Montserrat mx-5">
             OR
           </p>
           <div className=" w-full border border-gray-200"></div>
@@ -55,7 +55,7 @@ const ModalBody = ({ onClose, formHeading }: ModalProps) => {
 
         <button
           onClick={handleClick}
-          className=" w-full py-2  text-3xl font-semibold font-Caveat border border-gray-400 rounded-lg hover:border-black"
+          className=" w-full py-2 text-2xl  md:text-3xl font-semibold font-Caveat border border-gray-400 rounded-lg hover:border-black"
         >
           <div className=" flex justify-center items-center gap-3">
             <FcGoogle /> Continue With Google

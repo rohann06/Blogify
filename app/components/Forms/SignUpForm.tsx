@@ -91,7 +91,7 @@ const SignUpForm = () => {
         className=" w-full py-2 hover:bg-gray-800 bg-gray-700 rounded-lg text-white text-3xl font-medium font-Caveat"
       >
         {isLoading ? (
-          <div className=" flex justify-center items-center text-xl">
+          <div className=" flex justify-center items-center text-lg md:text-xl">
             <AiOutlineLoading3Quarters className="animate-spin" />
           </div>
         ) : (

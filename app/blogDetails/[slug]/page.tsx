@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Blogdetail from "../../components/Blogdetail";
 import axios from "axios";
+import Loading from "@/app/components/Loading";
 
 type URL = {
   params: {
@@ -46,13 +47,22 @@ const BlogDetails = (id: URL) => {
   console.log("BlogDetail", blogDetails);
   return (
     <div className=" mt-20 mb-16 md:mt-24 md:mb-20">
-      {blogDetails.map((blogDetail) => (
+      {isLoading ? (
         <>
-          {blogDetail?.id === authorId && (
-            <Blogdetail blogDetail={blogDetail} authorId={authorId} />
-          )}
+          {" "}
+          <Loading />{" "}
         </>
-      ))}
+      ) : (
+        <>
+          {blogDetails.map((blogDetail) => (
+            <>
+              {blogDetail?.id === authorId && (
+                <Blogdetail blogDetail={blogDetail} authorId={authorId} />
+              )}
+            </>
+          ))}
+        </>
+      )}
     </div>
   );
 };
