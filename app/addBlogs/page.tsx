@@ -6,7 +6,7 @@ const AddBlogs = () => {
   return (
     <BlogFormStateContextProvider>
       <>
-        <div className=" mt-16 mb-10">
+        <div className=" mt-10 md:mt-16 mb-5 md:mb-10">
           <AddBlogForm />
         </div>
       </>

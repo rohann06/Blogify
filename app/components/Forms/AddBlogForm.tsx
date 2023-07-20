@@ -55,22 +55,22 @@ const AddBlogForm = () => {
     <>
       {session && session?.user && (
         <>
-          <div className=" w-full p-5 border-2 rounded-xl shadow-lg">
+          <div className=" w-full py-5  p-3 md:p-5 border-2 rounded-xl shadow-lg">
             <div className=" bg-left-bottom bg-gradient-to-r from-slate-500 to-pink-500 bg-no-repeat bg-[length:100%_3px] transition-all pb-[0.5px]">
-              <p className=" text-gray-800 text-center text-[25px] font-semibold font-Pacifico mb-5">
+              <p className=" text-gray-800 text-center text-[20px] md:text-[25px] font-semibold font-Pacifico mb-3 md:mb-5">
                 Add Your Blog
               </p>
             </div>
 
             <form
               onSubmit={handelFormSubmit}
-              className=" flex flex-col justify-center gap-y-7 mt-10 mb-5"
+              className=" flex flex-col justify-center gap-y-5 md:gap-y-7 mt-5 mb-3 md:mt-10 md:mb-5"
             >
               <div>
-                <p className=" font-Caveat text-xl font-semibold">Blog Title</p>
+                <p className=" font-Caveat md:text-xl font-semibold">Blog Title</p>
                 <input
                   type="text"
-                  className=" w-full border border-black rounded-lg mt-2 py-[13px] px-5 font-Montserrat font-medium"
+                  className=" w-full border border-black rounded-lg mt-1 md:mt-2 py-[9px] md:py-[13px] px-2 md:px-5 font-Montserrat font-medium"
                   value={title}
                   onChange={(e) => setBlogTitle(e.target.value)}
                 />
@@ -82,7 +82,7 @@ const AddBlogForm = () => {
                 </p>
                 <textarea
                   rows={10}
-                  className=" w-full border border-black rounded-lg mt-2 py-[13px] px-5 font-Montserrat font-medium"
+                  className=" w-full border border-black rounded-lg mt-1 md:mt-2 py-[9px] md:py-[13px] px-2 md:px-5 font-Montserrat font-medium"
                   value={content}
                   onChange={(e) => setBlogDetail(e.target.value)}
                 />
@@ -96,7 +96,7 @@ const AddBlogForm = () => {
                   rows={6}
                   minLength={20}
                   maxLength={500}
-                  className=" w-full border border-black rounded-lg mt-2 py-[13px] px-5 font-Montserrat font-medium"
+                  className=" w-full border border-black rounded-lg mt-1 md:mt-2 py-[9px] md:py-[13px] px-2 md:px-5 font-Montserrat font-medium"
                   value={summary}
                   onChange={(e) => setBlogSummary(e.target.value)}
                 />
@@ -114,7 +114,7 @@ const AddBlogForm = () => {
                   type="submit"
                   className={` ${
                     isLoading && "cursor-not-allowed"
-                  } w-1/2 px-20 py-3 font-semibold text-2xl bg-gray-700 text-white rounded-xl hover:bg-gray-800`}
+                  } w-full md:w-1/2 md:px-20 py-2 md:py-3 font-semibold text-lg md:text-2xl bg-gray-700 text-white rounded-xl hover:bg-gray-800`}
                 >
                   {isLoading ? (
                     <div className=" flex justify-center items-center text-xl">
