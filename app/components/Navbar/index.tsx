@@ -16,7 +16,6 @@ const Navbar = () => {
   const { isLoginOpen, setIsLoginOpen, isSignupOpen, setIsSignupOpen } =
     useGlobalStateContext();
 
-  
   return (
     // <div className=" hidden md:block">
     <div className=" flex justify-between items-center">
@@ -54,20 +53,21 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className=" flex justify-around items-center  md:text-center lg:mt-5 mt-2">
+      <div className=" flex items-center md:text-center lg:mt-5 mt-2">
         <Link href={"/"}>
           <div>
             <p className="font-Pacifico text-[27px] md:text-[50px] text-gray-600">
               Blogify
             </p>
-            <p className=" mt-1 text-sm md:text-2xl font-Caveat text-gray-500">
+            <p className=" mt-1 text-sm text-center md:text-2xl font-Caveat text-gray-500">
               Speak with your words
             </p>
           </div>
         </Link>
 
         {/* Mobile NavOption */}
-        <MobileNav/>
+
+        <MobileNav />
       </div>
 
       <div className=" hidden md:block">
