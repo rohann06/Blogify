@@ -56,34 +56,36 @@ const HomePage = () => {
       ) : (
         <div className=" mt-16 mb-10 grid grid-cols-1 w-full justify-center gap-y-14">
           <>
-            {blogs.map((blog) => (
+            {blogs.length ? (
               <>
-                {blog ? (
-                  <BlogCard
-                    title={blog?.title}
-                    summary={blog?.summary}
-                    author={blog?.author?.name}
-                    authorImage={blog?.author?.image}
-                    publishedDate={blog?.createdAt}
-                    key={blog?.id}
-                    id={blog?.id}
-                  />
-                ) : (
-                  <div className=" text-center my-9">
-                    <Image
-                      className=" felx justify-center items-center m-auto"
-                      src={"/noBlogFound.png"}
-                      alt="erroImg"
-                      height={550}
-                      width={550}
+                {blogs.map((blog) => (
+                  <>
+                    <BlogCard
+                      title={blog?.title}
+                      summary={blog?.summary}
+                      author={blog?.author?.name}
+                      authorImage={blog?.author?.image}
+                      publishedDate={blog?.createdAt}
+                      key={blog?.id}
+                      id={blog?.id}
                     />
-                    <p className=" text-4xl font-Caveat font-medium">
-                      No Blogs yet, Be The First one
-                    </p>
-                  </div>
-                )}
+                  </>
+                ))}
               </>
-            ))}
+            ) : (
+              <div className=" text-center my-9">
+                <Image
+                  className=" felx justify-center items-center m-auto"
+                  src={"/noBlogFound.png"}
+                  alt="erroImg"
+                  height={550}
+                  width={550}
+                />
+                <p className=" text-4xl font-Caveat font-medium">
+                  No Blogs yet, Be The First one
+                </p>
+              </div>
+            )}
           </>
         </div>
       )}
@@ -92,3 +94,7 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+{
+  /*  */
+}
