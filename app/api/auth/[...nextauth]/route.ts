@@ -1,8 +1,7 @@
 import prisma from "../../../lib/prismadb";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import type { NextAuthOptions } from "next-auth";
 import type { Adapter } from "next-auth/adapters";
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import bcrypt from "bcrypt";
 
 //Provider
@@ -10,8 +9,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { Session } from "inspector";
 
-
-export const authOptions: NextAuthOptions = {
+const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter<Session>,
 
   providers: [
@@ -70,5 +68,6 @@ export const authOptions: NextAuthOptions = {
 // export default NextAuth(authOptions);
 
 const handler = NextAuth(authOptions);
+// export default NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

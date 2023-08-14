@@ -68,7 +68,7 @@ const SignUpForm = () => {
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          type="text"
+          type="email"
           required
           className=" w-full border-2 rounded-lg py-2 px-3"
         />
