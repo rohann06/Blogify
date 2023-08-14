@@ -62,43 +62,47 @@ const MyBlog = () => {
             </>
           ) : (
             <>
-              {myBlogs.map((myblog) => (
+              {myBlogs.length ? (
                 <>
-                  {session?.user?.email === myblog?.authorId ? (
-                    <BlogCard
-                      key={myblog?.id}
-                      id={myblog?.id}
-                      title={myblog?.title}
-                      summary={myblog?.summary}
-                      author={myblog?.author?.name}
-                      authorImage={myblog?.author?.image}
-                      publishedDate={myblog?.createdAt}
-                    />
-                  ) : (
+                  {myBlogs.map((myblog) => (
                     <>
-                      <div className=" text-center my-9">
-                        <Image
-                          className=" felx justify-center items-center m-auto"
-                          src={"/noBlogFound.png"}
-                          alt="erroImg"
-                          height={550}
-                          width={550}
+                      {session?.user?.email === myblog?.authorId && (
+                        <BlogCard
+                          key={myblog?.id}
+                          id={myblog?.id}
+                          title={myblog?.title}
+                          summary={myblog?.summary}
+                          author={myblog?.author?.name}
+                          authorImage={myblog?.author?.image}
+                          publishedDate={myblog?.createdAt}
                         />
-                        <p className=" text-4xl font-Caveat ">
-                          Write Your First Blog{" "}
-                          <span
-                            onClick={() => router.push("/addBlog")}
-                            className=" underline cursor-pointer"
-                          >
-                            {" "}
-                            here{" "}
-                          </span>
-                        </p>
-                      </div>
+                      )}
                     </>
-                  )}
+                  ))}
                 </>
-              ))}
+              ) : (
+                <>
+                  <div className=" text-center my-9">
+                    <Image
+                      className=" felx justify-center items-center m-auto h-[400px] w-[400px]"
+                      src={"/noBlogFound.png"}
+                      alt="erroImg"
+                      height={550}
+                      width={550}
+                    />
+                    <p className=" text-2xl md:text-4xl font-Caveat font-medium">
+                      Write Your First Blog{" "}
+                      <span
+                        onClick={() => router.push("/addBlog")}
+                        className=" underline cursor-pointer"
+                      >
+                        {" "}
+                        here{" "}
+                      </span>
+                    </p>
+                  </div>
+                </>
+              )}
             </>
           )}
         </div>
