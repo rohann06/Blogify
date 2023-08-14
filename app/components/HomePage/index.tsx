@@ -75,13 +75,13 @@ const HomePage = () => {
             ) : (
               <div className=" text-center my-9">
                 <Image
-                  className=" felx justify-center items-center m-auto"
+                  className=" felx justify-center items-center m-auto h-[400px] w-[400px]"
                   src={"/noBlogFound.png"}
                   alt="erroImg"
                   height={550}
                   width={550}
                 />
-                <p className=" text-4xl font-Caveat font-medium">
+                <p className=" text-2xl md:text-4xl font-Caveat font-medium">
                   No Blogs yet, Be The First one
                 </p>
               </div>
