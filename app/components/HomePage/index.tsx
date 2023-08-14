@@ -56,9 +56,9 @@ const HomePage = () => {
       ) : (
         <div className=" mt-16 mb-10 grid grid-cols-1 w-full justify-center gap-y-14">
           <>
-            {blogs.length ? (
+            {blogs?.length ? (
               <>
-                {blogs.map((blog) => (
+                {blogs?.map((blog) => (
                   <>
                     <BlogCard
                       title={blog?.title}
@@ -95,6 +95,4 @@ const HomePage = () => {
 
 export default HomePage;
 
-{
-  /*  */
-}
+

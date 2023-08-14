@@ -62,9 +62,9 @@ const MyBlog = () => {
             </>
           ) : (
             <>
-              {myBlogs.length ? (
+              {myBlogs?.length ? (
                 <>
-                  {myBlogs.map((myblog) => (
+                  {myBlogs?.map((myblog) => (
                     <>
                       {session?.user?.email === myblog?.authorId && (
                         <BlogCard

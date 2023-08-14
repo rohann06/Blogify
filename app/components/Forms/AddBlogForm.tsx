@@ -67,7 +67,9 @@ const AddBlogForm = () => {
               className=" flex flex-col justify-center gap-y-5 md:gap-y-7 mt-5 mb-3 md:mt-10 md:mb-5"
             >
               <div>
-                <p className=" font-Caveat md:text-xl font-semibold">Blog Title</p>
+                <p className=" font-Caveat md:text-xl font-semibold">
+                  Blog Title
+                </p>
                 <input
                   type="text"
                   className=" w-full border border-black rounded-lg mt-1 md:mt-2 py-[9px] md:py-[13px] px-2 md:px-5 font-Montserrat font-medium"
